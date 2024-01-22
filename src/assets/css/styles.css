@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* social icon */
+.ficon:hover {
+  /* filter: invert(64%) sepia(91%) saturate(7473%) hue-rotate(221deg) brightness(84%) contrast(103%); */
+  filter: invert(47%) sepia(69%) saturate(6446%) hue-rotate(217deg)
+    brightness(81%) contrast(113%);
+}
+
+/* HAMBURGER MENU */
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(4px) translateX(4px);
+  background-color: #fff;
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(-4px) translateX(4px);
+  background-color: #fff;
+}
+
+.theme-aside {
+  @apply px-2 py-0.5 text-sm hover:rounded-lg hover:border-0 hover:bg-gray-100 hover:text-blue-700;
+}
+
+.theme-toc {
+  @apply my-0.5 block truncate rounded-lg border border-white px-2 py-2 text-xs text-gray-800 hover:rounded-lg hover:border-gray-200 hover:text-blue-700 dark:border-gray-800 dark:text-gray-200 dark:hover:border-gray-700 dark:hover:text-blue-500;
+}
+
+.theme-toc-active {
+  @apply my-0.5 block truncate rounded-lg border bg-gray-100 px-2 py-2 text-xs text-blue-700 dark:border-gray-500 dark:bg-gray-700 dark:text-gray-200 dark:hover:text-blue-500;
+}
+
+.theme-toc-nest-1 {
+  @apply pl-3;
+}
+
+.theme-toc-nest-2 {
+  @apply pl-4;
+}
+
+.theme-toc-nest-3 {
+  @apply pl-5;
+}
+
+.theme-toc-nest-1::before,
+.theme-toc-nest-2::before,
+.theme-toc-nest-3::before {
+  content: "- ";
+}
+
+/* Image zoom */
+.zoomIn {
+  @apply animate-zoomIn;
+}
+
+.zoomOut {
+  @apply animate-zoomOut;
+}
+
+/* Scrollbar */
+/* 整个滚动条，可以设置任意的尺寸大小，包括 0，也就是滚动条不可见 */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* 可拖拽的那个滑杆 */
+*::-webkit-scrollbar-thumb {
+  background: rgba(60, 60, 67, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #425aef;
+  opacity: 1;
+  display: block !important;
+}
+
+/* 滚动条的轨道 */
+*::-webkit-scrollbar-track {
+  background-color: #00000000;
+}
+
+/* Fix jumping scrollbar issue */
+/* :root {
+  scrollbar-gutter: stable;
+} */
+
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* waline */
+  --waline-bgcolor-light: #ffff;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("/font/Oswald-VariableFont_wght.woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/font/Montserrat-VariableFont_wght.woff2");
+  font-display: swap;
+}
+
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  /* display: inline-block; */
+  /* vertical-align: middle; */
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0b9b8a;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover,
+.hvr-sweep-to-right:focus,
+.hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before,
+.hvr-sweep-to-right:focus:before,
+.hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* 导航栏高度滚动 */
+.navbar-init {
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  -webkit-transition: all 0.5s ease;
+}
+
+.navbar-scroll {
+  height: 88px !important;
+}
+
+/* waline */
+.wl-editor {
+  @apply transition-none;
+}
+
+.wl-input {
+  @apply transition-none;
+}
+
+.wl-panel > textarea {
+  @apply border-transparent ring-transparent;
+}
+
+/* Code copy button */
+div.highlight,
+pre {
+  position: relative;
+}
+
+.copy-code {
+  @apply absolute right-1 top-1 hidden select-none rounded-lg bg-gray-400/80 px-2 py-0.5 text-xs text-white/95 backdrop-blur-sm transition duration-500 hover:text-white/60 dark:bg-gray-700 dark:hover:text-white/70;
+}
+
+div.highlight:hover .copy-code,
+pre:hover .copy-code {
+  display: block;
+}
+
+/* Twikoo comment */
+.twikoo {
+  @apply w-full px-0.5 py-5 md:px-2 lg:max-w-5xl lg:px-8 dark:text-gray-400;
+}
+
+.tk-submit .tk-row .tk-avatar {
+  @apply hidden;
+}
+
+.tk-row.actions {
+  @apply mx-0 !important;
+}
+
+.tk-input.el-textarea > textarea {
+  @apply h-28 min-h-28 !important;
+}
+
+.tk-expand {
+  @apply rounded-lg dark:hover:bg-gray-600;
+}
+
+.goods-item-hidden {
+  opacity: 0;
+  transform: translateY(6%);
+  transition:
+    opacity 0.4s ease,
+    transform 0.8s ease;
+}
+
+.slide-top {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 下面的fixed、inset-0、z-30、bg-gray-900及dark:bg-gray-900是flowbite.css移除后兼容drawer的阴影效果 */
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  inset: 0px;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
+.bg-gray-900\/50 {
+  background-color: rgb(17 24 39 / 0.5);
+}
+
+:is(:where(.dark) .dark\:bg-gray-900\/80) {
+  background-color: rgb(17 24 39 / 0.8);
+}
